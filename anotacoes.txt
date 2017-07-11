@@ -56,3 +56,84 @@
 
 	Independetemente de precisarmos ou não incluir outras bibliotecas, devemos sempre incluir nossa própria biblioteca (header) no código-fonte. Para isso, usamos #include "<nome-do-header.h>.
 	Por fim, temos de incluir nossa biblioteca no nosso programa.
+	
+-------------------------------
+-Capítulo 2 -- Lendo e escrevendo nas variáveis
+
+1. Toda informação contida dentro de um programa está armazenada na memória do computador. Nossos dados, em particular, estão sempre guardados dentro de uma variável. Em computação, uma variável é uma posição de memória onde poderemos guardar determinado dado ou valor e modificá-lo ao longo da execução do programa.
+	Quando criamos uma variável e armazenamos um valor dentro dela, o computador reserva um espaço associado a um endereço de memória onde podemos guardar o valor dessa variável.
+
+2.	Em linguagem C, a declaração de uma variável pelo programador segue a esta forma geral: tipo_da_variável nome_da_variável.
+	O tipo_da_variavel dtermina o conjunto de valores e de operações que uma variável aceita, ou seja, que ela pode executar. Já o nome_da_variável é como o programador identifica essa variável dentro do programa. Ao nome da variável o computador associa o endereço do espaço que ele reservou na memória para guardá-la.
+	Mais de uma variável pode ser declarada para um mesmo tipo ao mesmo tempo. Para tanto, basta separar cada nome de variável por uma vírgula: int x, y, z;
+
+3. O operador de ponto e vírgula é utilizado para separar as instruções na linguagem C que compõem um programa de computador.
+
+4.	Apenas quando declaramos uma variável é que o computador reserva um espaço de memória para guardarmos nossos dados. Assim, não é possível usar esse espaço antes de tê-lo reservado na memória.
+
+5.	Quando falamos em memória do computador, não existe o conceito de posição de memória "vazia". Toda posição de memória do computador está preenchida com um conjunto de 0s e 1s. O que ocorre é que a posição de memória pode apenas não estar sendo utilizada. Portanto, ao criarmos uma variável, o computador seleciona uma posição que não estava sendo usada para guardar a nossa variável e, portanto, ela automaticamente estará preenchida com um valor chamado de "lixo de memória": um conjunto de 0s e 1s sem significado para o nosso programa.
+
+6.	Quando criamos uma variável, o computador reserva um espaço de memória onde podemos guardar o valor associado a ela. Ao nome que damos a essa variável o computador associa o endereço do espaço que ele reservou na memória para guardá-la. De modo geral, interessa ao programador saber o nome das variáveis. Porém, existem algumas regras para a escolha dos nomes das variáveis na linguagem C:
+	° O nome de uma variável é um conjunto de caracteres que podem ser letras, números ou underscores(_).
+	° O nome de uma variável deve sempre iniciar com uma letra ou o underscore(_).
+
+7.	A linguagem C é case-sensitive, ou seja, uma palavra escrita utilizando caracteres maiúsculos é diferente da mesma palavra escrita com caracteres minúsculos. Sendo assim, as palavras Soma, soma e SOMA são consideradas diferentes para a linguagem C e representam TRÊS variáveis distintas.
+
+8.	As palavras-chave são um conjunto de 32 palavras reservadas dentro da linguagem C. São elas que formam a sintaxe da linguagem C. Essas palavras já possuem funções específicas dentro da linguagem de programação e, por esse motivo, não podem ser utilizadas para outro fim, como para nomes de variáveis.
+
+9.	A linguagem C possui um total de cinco tipos de dados básicos:
+	° O tipo char: esse tipo de dados permite armazenar em um único byte (8 bits) um número inteiro muito pequeno ou o código de um caractere do conjunto de caracteres da tabela ASCII.
+	Lembre-se: uma única letra poder o nome de uma variável. As aspas simples permitem que o compilador saiba que estamos inicializando nossa variável com um caractere e não com o conteúdo de outra variável.
+
+	° O tipo int: o segundo tipo de dado é o tipo inteiro. Esse tipo de dados permite armazenar um número inteiro (sem parte fracionária). Seu tamanho depende do processador em que o programa está rodando e é tipicamente 16 ou 32 bits.
+
+	° Os tipos float e double: o terceiro e quarto tipos de dados são os tipos reais: float e double. Esses tipos de dados permitem armazenar um valor real ( com parte fracionária ), também conhecido como ponto flutuante. A diferença entre eles é a sua precisão: 
+		° tipo float: precisão simples;
+		° tipo double: dupla precisão.
+	São úteis quando queremos trabalhar com intervalos de números reais realmente grandes.
+	A notação científica é uma forma de escrever números extremamente grandes ou extremamente pequenos. Nesse caso, o valor real é seguido por uma letra "e" ou "E" e um número inteiro (positivo ou negativo), que indica o expoente da base 10(representado pela letra "e" ou "E" que multiplica o número).
+
+	° O tipo void: esse tipo de dados permite declarar uma função que não retorna valor ou um ponteiro genérico, como será visto nas próximas seções.
+	A linguagem C não permite que se declare uma variável do tipo void. Esse tipo de dados só deve ser usado para declarar funções que não retornam valor ou ponteiro genérico.
+
+
+10.	Além dos cinco tipos básicos, a linguagem C, possui quatro modificadores de tipos. Eles são aplicados precedendo os tipos básicos (com exceção do tipo void), e permitem alterar o significado do tipo, de modo a adequá-lo às necessidades do nosso programa. São eles: signed, unsigned, short e long:
+	
+	° O modificador signed: esse modificador determina que uma variável declarada dos tipos char out int poderá ter valores positivos ou negativos. Trata-se do modo-padrão de definição de variáveis desses tipos, e, por esse motivo, raramente é usado.
+	
+	° O modificador unsigned: esse modificador determina que uma variável declarada dos tipos char out int somente poderá ter valores positivos e o valor zero. Nesse caso, a variável perde seu bit de sinal, o que dobra a sua capacidade de armazenamento para valores positivos. Por exemplo, uma variável do tipo char é capaz de armazenar valores de -128 até 127. Se a mesma variável for declarada como sendo do tipo unsigned char, ela será capaz de armazenar valores de 0 até 255.
+	
+	° O modificador short: esse modificador determina que uma variável do tipo int terá apenas 16 bits (inteiro pequeno), independentemente do processador.
+	
+	° O modificador long: esse modificador faz o inverso do modificador short. O modificador long determina que uma variável do tipo int terá 32 bits (inteiro grande), independentemente do processador. Também determina que o tipo double possua maior precisão.
+
+	A linguagem C permite que se utilize mais de um modificador de tipo sobre um mesmo tipo. Isso permite, por exemplo, declarar um inteiro grande(ou seja, com 32 bits)usando o modificador (long) e que também seja sem sinal (unsigned). Essa combinação permite aumentar em muito o intervalo de valores possíveis para aquela variável.
+
+12.	A função printf() é uma das funções de saída/escrita de dados da linguagem C. Seu nome vem da expressão em inglês print formatted, ou seja, escrita formatada. Basicamente, a função printf() escreve na saída de vídeo (tela) um conjunto de valores caracteres e/ou sequência de caracteres de acordo com o formato especificado.
+
+13.	A função putchar() (put character) permite escrever um único caractere na tela.
+
+14.	A função scanf() é uma das funções de entrada/leitura de dados da linguagem C. Seu nome vem da expressão em inglês scan formatted, ou seja, leitura formatada. Basicamente, a função scanf() lê do teclado um conjunto de valores, caracteres e/ou sequência de caracteres de acordo com o formato especificado.
+	O comando scanf() ignora os espaços em branco entre os tipos de entrada. Qualquer outro caractere inserido entre os tipos de dados deverá ser digitado pelo usuário, mas será descartado pelo programa.
+
+15.	A função getchar() (get character) permite ler um único caractere do teclado.
+
+16.	O escopo de uma variável define onde e quando a variável pode ser usada. Esse escopo está intimamente ligado ao local de declaração dessa variável e, por esse motivo, pode global ou local:
+	
+	° Uma variável declarada no escopo global, ou simplesmente variável global, é uma variável declarada fora de todas as funções do programa, ou seja, na área de declarações globais do programa. Essas variáveis existem enquanto o programa estiver executando, ou seja, o tempo de vida de vida de uma variável global é o tempo de execução do programa. Além disso essas variáveis poder ser acessadas e alteradas em qualquer parte do programa.
+	As variáveis globais devem ser evitadas porque qualquer parte do programa pode alterá-la. Isso prejudica a manutenção do programa, pos torna mais difícil saber onde a variável é inicializada, para que serve etc. Além disso, as variáveis globais ocupam memória durante todo o tempo de execução do programa e não apenas quando são necessárias.
+
+	° Uma variável declarada no escopo local, ou simplesmente variável local, é uma variável declarada dentro de um bloco de comandos delimitado pelo operador de chaves ({}, escopo local). Essas variáveis são visíveis apenas no interior do bloco de comandos onde foram declaradas, ou seja, apenas dentro do seu escopo.
+	Quando um bloco possuir uma variável local com o mesmo nome de uma variável global, esse bloco dará preferência à variável local. O mesmo vale para duas variáveis locais em blocos diferentes: a declaração mais próxima sempre tem maior precedência e oculta as demais variáveis com o mesmo nome.
+
+	Como escopo é um assunto delicado e pode gerar muita confusão, evita-se o uso de variáveis com o mesmo nome.
+
+17.	 Uma constante permite guardar determinado dado ou valor na memória do computador, mas com a certeza de que ele não se alterará durante a execução do programa: será sempre o mesmo; portanto, constante. Para constantes, é obrigatória a atribuição do valor no momento da declaração. Na linguagem C existem duas maneiras de criar constantes: usando os comandos #define e const. Além disso a linguagem C possui algumas constantes predefinidas, como as sequências de escape.
+
+	° O comando #define é uma diretiva de compilação que informa ao compilador que ele deve procurar todas as ocorrências da palavra definida e substitui pelo valor da constante quando o programa for compilado.
+
+	° O prefixo const apenas informa ao programa que a variável declarada não poderá ter seu valor alterado. Por ser uma variável, essa constante está sujeita às mesmas regras que regem o uso das variáveis.
+	
+18.	Um valor literal é a representação de um dado dentro do próprio código-fonte. Trata-se de um valor que é expresso como ele mesmo e não como um valor armazenado em variável ou resultado de uma expressão aritmética. Um valor literal, assim como as variáveis, pertence a determinado tipo de dado. Por exemplo, o valor 10.5 é considerado do tipo double, apesar de a linguagem  possuir três tipos para pontos flutuantes: float, double e long double. A linguagem C permite que indiquemos o tipo de um valor literal pela adição de um sufixo. O sufixo nada mais é do que um caractere de tipo acrescentado ao final do valor literal, sem nenhum espaço entre eles. Eles são úteis para forçar o resultado de uma expressão para um precisão particular.
+
+19.	A linguagem C possui algumas constante predefinidas, como as sequências de escape ou códigos de barra invertida. As sequências de escape permitem o envio de caracteres de controle não gráficos para dispositivos de saída.
