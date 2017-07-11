@@ -232,3 +232,42 @@
 	O comando break é opcional e faz com que o comando switch seja interrompido assim que uma das sequências de comandos é executada.
 	Quando o valor associado a um comando case é igual ao valor da variável do switch, a respectiva sequência de comandos é executada até encontrar um comando break. Caso o comando break não exista, a sequência de comandos do case seguinte também será executada, e assim por diante.
 	De modo geral, a sequência de comandos case não precisa estar entre chaves ({}). Mas se o primeiro comando dentro de um case for a declaração de uma variável, será necessário colocar todos os comandos desse case dentro de um par de chaves ({}). A explicação para esse comportamento do switch se deve a uma regra da linguagem que especifica que um salto condicional não pode pular uma declaração de variável no mesmo escopo. Quando colocamos as ({}) depois do comando case e antes do comando break, estamos criando um novo escopo, ou seja, a variável declarada existe apenas dentro desse par de chaves. Portanto, ela pode ser pulada por um salto condicional.
+
+-------------------------------
+-Capítulo 5 -- Comandos de repetição
+
+1.	Há casos em que é preciso que um bloco de comandos seja executado mais de uma vez se determinada condição for verdadeira. Para isso, precisamos de uma estrutura de repetição que permita executar um conjunto de comandos quantas vezes forem necessárias. Isso é muito similar ao que ocorre em um fluxograma, em que o símbolo de losango permitia escolher entre diferentes caminhos com base em uma condição do tipo verdadeiro/falso, com a diferença de que agora o fluxo do programa é desviado novamente para a condição ao final da sequência de comandos.
+	De acordo com a condição, os comandos serão repetidos zero (se falsa) ou mais vezes (enquanto a condição for verdadeira). Essa estrutura normalmente é denominada laço ou loop. A sequência de comandos a ser repetida está subordinada a uma condição. Por condição entende-se qualquer expressão relacional que resulte em uma resposta do tipo verdadeiro ou falso. A condição pode ainda ser uma expressão que utiliza os operadores matemáticos, relacionais ou lógicos.
+
+2.	Laço infinito (ou loop infinito) é um sequência de comandos em um programa de computador que sempre se repete, ou seja, infinitamente. Isso geralmente ocorre por algum erro de programaçãom, quando não definimos uma condição de parada ou a condição de parada existe, mas nunca é atingida.
+
+3.	Na execução do comando while, a condição será avaliada e se a condição for considerada verdadeira a sequência de comandos será executada. Ao final da sequência de comandos, o fluxo do programa é desviado novamente para o teste da condição.
+
+4.	Como nos comandos condicionais, o comando while atua apenas sobre o comando seguinte a ele. Se quisermos que ele execute uma sequência de comandos, é preciso definir essa sequência de comandos dentro de chaves ({}).
+
+5.	O comando for basicamente, é usado para repetir um comando ou uma sequência de comandos diversas vezes. Na execução do comando for, é realizada esta sequência de passos:
+	° A cláusula inicialização é executada: nela as variáveis recebem um valor inicial para usar dentro do for.
+	
+ 	° Se a condição for considerada verdadeira, a sequência de comandos será executada. Ao final da sequência de comandos, o fluxo do programa é desviado para o incremento.
+	
+	° Terminada a execução da sequência de comandos, ocorre a etapa de incremento das variáveis usadas no for. Ao final dessa etapa, o fluxo do programa é novamente desviado para a condição.
+
+	Dependendo da situação em que o comando for é utilizado, podemos omitir qualquer uma de suas cláusulas: inicialização, condição ou incremento. Independetemente de qual cláusula é omitida, o comando for exige que se coloquem os dois operadores de ponto e virgula (;), pois esse operador que indica a separação entre as cláusulas de inicialização, condição e incremento. Sem elas, o compilador não tem certeza de qual cláusula foi omitida.
+	A cláusula de incremento é utilizada para atribuir um novo valor a uma ou mais variáveis durante o comando for. Essa atribuição não está restrita apenas ao operador de incremento (++). A cláusula de incremento pode conter qualquer comando que altere o valor de uma das variáveis utilizadas pelo comando for.
+
+6.	Na linguagem C, o operador ",", é um separador de comandos. Ele permite determinar uma lista de expressões que devem ser executadas sequencialmente, inclusive dentro do for.
+
+7.	O comando do-while é bastante semelhante ao comando while visto anteriormente. Sua principal diferença é com relação à avaliação: enquanto o comando while avalia a condição para depois executar uma sequência de comandos, o comando do-while executa uma sequência de comandos para depois testar a condição. O comando do-while é utilizado sempre que se desejar que a sequência de comandos seja executar pelo menos uma vez.
+	No comando do while, a sequência de comandos é definida antes do teste da condição, diferentemente dos outros comandos condicionais e de repetição. Isso significa que o teste da condição é o último comando da repetição do-while. Sendo assim, o compilador entende que a definição do comando do-while já terminou e exige que se coloque o operador de ponto e vírgula (;) após a condição.
+
+8.	Uma repetição aninhada é simplesmente um comando de repetição utilizado dentro do bloco de comandos de um outro comando de repetição. Basicamente, é um comando de repetição dentro de outro, semelhante ao que é feito com o comando if.
+	O aninhamento de comandos de repetição é muito útil quando se tem de percorrer dois conjuntos de valores que estão relacionados dentro de um programa.
+
+9.	O comando break serve para quebrar a execução de um conjunto de comandos ou interromper a execução de qualquer comando de repetição. O comando break faz com que a execução do programa continue na primeira linha seguinte ao laço que está sendo interrompido, terminando de forma abrupta uma repetição.
+	O comando break deverá sempre ser colocado dentro de um comando if ou else que está dentro da repetição. Isso ocorre porque o comando break serve para interromper a execução de qualquer comando de repetição. Porém, esse comando de repetição só deve ser interrompido se ocorrer determinado resultado.
+
+10.	O comando continue é muito parecido com o comando break. Tanto o break quanto o continue ignoram da sequência de comandos da repetição que os sucedem. A diferença é que, enquanto o comando break termina o comando de repetição que está sendo executado, o comando continue interrrompe apenas aquela repetição e passa para a próxima repetição do laço, se ela existir. Por esse mesmo motivo, o comando continue só pode ser utilizado dentro de um laço.
+	Quando o comando continue é executado, os comandos restates da repetição são ignorados. O programa volta a testar a condição do laço para saber se ele deve ser executado novamente ou não.
+	O comando assim como o comando break deverá sempre ser colocado dentro de um if ou else que está dentro da repetição.
+
+11.	O comano goto é um salto condicional para um local especificado por uma palavra-chave no código. O comando goto muda o fluxo do programa para um local previamente especificado. Esse local pode ser à frente ou atrás no programa, mas deve ser dentro da mesma função.
