@@ -137,3 +137,67 @@
 18.	Um valor literal é a representação de um dado dentro do próprio código-fonte. Trata-se de um valor que é expresso como ele mesmo e não como um valor armazenado em variável ou resultado de uma expressão aritmética. Um valor literal, assim como as variáveis, pertence a determinado tipo de dado. Por exemplo, o valor 10.5 é considerado do tipo double, apesar de a linguagem  possuir três tipos para pontos flutuantes: float, double e long double. A linguagem C permite que indiquemos o tipo de um valor literal pela adição de um sufixo. O sufixo nada mais é do que um caractere de tipo acrescentado ao final do valor literal, sem nenhum espaço entre eles. Eles são úteis para forçar o resultado de uma expressão para um precisão particular.
 
 19.	A linguagem C possui algumas constante predefinidas, como as sequências de escape ou códigos de barra invertida. As sequências de escape permitem o envio de caracteres de controle não gráficos para dispositivos de saída.
+
+-------------------------------
+-Capítulo 3 -- As operações que podemos fazer com as variáveis
+
+1.	Uma das operações mais utilizadas em programação é a operação de atribuição "=". Ela é responsável por armazenar determinado valor em uma variável.
+	Por expressão entende-se qualquer combinação de valores, variáveis, constantes ou chamadas de funções utilizando os operadores matemáticos +, -, *, / e %, que resulte em uma resposta do mesmo tipo da variável.
+
+2.	A linguagem C também permite a atribuição entre tipos básicos diferentes. O compilador converte automaticamente o valor do lado direito para o tipo do lado esquerdo do comando de atribuição "=". Durante a etapa de conversão de tipos, pode haver perda de informação.
+
+3.	Os operadores aritméticos são aqueles que operam sobre números ( valores, variáveis, constantes ou chamadas de funções ) e/ou expressões e têm como resultados valores númericos. A linguagem C possui um total de cinco operadores aritméticos.
+	Os operadores aritméticos são sempre usados em conjunto com o operador de atribuição. Afinal de contas, alguém precisa receber o resultado da expressão aritmética.
+
+4.	Em uma expressão, as operações de multiplicação, divisão e resto são executadas antes das operações de adição e subtração. Para forçar um operação a ser executada antes das demais, ela é colocada entre parênteses.
+
+5.	O operador de subtração também pode ser utilizado para inverter o sinal de um número.
+	De modo geral, os operadores aritméticos são operadores binários, ou seja, atuam sobre dois valores. Mas os operadore de adição e subtração também podem ser aplicados sobre um único valor. Nesse caso, eles são chamados de operadores unários.
+
+6.	Em uma operação utilizando o operador de quociente /, se o numerador e o denominador forem números inteiros, por padrão o compilador retornará apenas a parte inteira da divisão.
+	O operador de resto da divisão (%) só é válido para valores inteiros (tipo int e char).
+
+7.	Os operadores relacionais são aqueles que operam sobre dois valores(valores, variáveis, constantes ou chamadas de funçoes) e/ou expressões e verificam a magnitude(qual e o maior ou menor) e/ou igualdade entre eles. Os operadores relacionais são operadores de comparação de valores. A linguagem C possui um total de seis operadores relacionais.
+
+8.	Os operadores lógicos permitem representar situações lógicas unindo duas ou mais expressões relacionais simples em uma composta:
+	° Operador E (&&): a expressão resultante só é verdadeira se ambas as expressões unidas por esse operador também forem.
+	
+	° Operador OU (||): a expressão resultante é verdadeira se alguma das expressões unidas por esse operador também for.
+	
+	° O operador NEGAÇÂO (!): inverte o valor lógico da expressão à qual se aplica.
+
+9.	A linguagem C permite que se façam operações "bit a bit" em valores númericos. Os operadores bit a bit permitem que o programador faça operações em cada bit do número de maneira direta. Os operadores bit a bit ajudam os programadors que queiram trabalhar com o computador em "baixo nível". A linguagem C possui um total de seis operadores bit a bit.
+	Os operadores só podem ser usados nos tipos char, int e long, não podem ser aplicados sobre os valores dos tipos float e double. Em parte, isso se deve à maneira como um valor real, também conhecido como ponto flutuante, é representado nos computadores, que é bem mais complexa: não se trata de apenas um conjunto de 0s e 1s na memória.
+
+10.	Basicamente, os operadores &, | e ^ fazem um comparação lógica para cada um dos bits dos valores avaliados, como explicado a seguir:
+	° O operador E bit a bit (&): um bit terá valor 1 na expressão resultante some se ambas as expressões unidas por esse operador também tiverem o valor 1 nos bits daquela posição.	
+
+	° O operador OU bit a bit (|): um bit terá valor 1 na expressão resultante se alguma das expressões unidas por esse operador também tiver o valor 1 no bit daquela posição.
+	
+	° O operador OU EXCLUSIVO bit a bit (^): um bit terá um valor 1 na expressão resultante somente se ambas as expressões unidas por esse operador tiverem valores de bits diferentes naquela posição.
+
+11. Os operadores "<<" e ">>", servem simplesmente para mover N bits para a esquerda ou para a direita.
+	Basicamente, os operadores de deslocamento << e >> movimentam todos os bits de um valor para a esquerda ou para a direita, colocando novos valores de bits(que podem ser 0s ou 1s) nos lugares vagos. Cada movimentaçao de bits equivale a multiplicar ou dividir(divisão inteira) por 2.
+
+12.	Além dos operadores simplificados, a linguagem C também possui operadores de incremento(++) e decremento(--). Esses operadores podem ser utilizados sempre que for necessário somar uma unidade (incremento) ou subtrair uma unidade (decremento) a determinado valor:
+	
+	° ++x(pré-incremento): soma +1 à variável x antes de utilizar seu valor.
+
+	° x++(pós incremento): soma +1 à variável x depois de utilizar seu valor.
+
+	° --x(pré-decremento): subtrai -1 da variável x antes de utilizar seu valor.
+	
+	° x--(pós-decremento): subtrai -1 da variável x depois de utilizar seu valor.
+
+13.	Modeladores de tipos (também chamados de type cast) são uma forma explícita de conversão de tipo, na qual o tipo a ser convertido é explicitamente definido dentro de um programa. Isso é diferente da conversão implícita, que ocorre naturalmente quanto tentamos atribuir um número real a uma variável inteira.
+	Um modelador de tipo é colocado em frente de uma expressão e tem como objetivo forçar o resultado da expressão a ser de um tipo especificado.
+
+14. Na linguagem C, o operador vírgula (,), pode ser utilizado de duas maneiras:
+	° Como pontuação, para separar argumentos de uma função;
+	° Para determinar uma lista de expressões que devem ser executadas sequencialmente. Pode-se encadear quantos operadores "," forem necessários.
+	
+	Na linguagem C, o operador "," é um separador de comandos, enquanto o operador ";" é um terminador de comandos.
+
+15.	A linguagem C contém muitos operadores. Consequentemente, o uso de múltiplos operadores em uma única expressão pode tornar confusa a sua interpretação. Por esse motivo, a linguagem C possui uma série de regras de precedência de operadores. Isso permite que o compilador possa decidir corretamente qual a ordem em que os operadores deverão ser executados em um expressão contendo vários. Para forçar o compilador a executar uma parte da expressão antes das demais pode-se utilizar os parênteses.
+
+16.	Link with the math library: gcc <nameOfFile> <nameOfFile.c> -lm
