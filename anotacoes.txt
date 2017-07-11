@@ -271,3 +271,49 @@
 	O comando assim como o comando break deverá sempre ser colocado dentro de um if ou else que está dentro da repetição.
 
 11.	O comano goto é um salto condicional para um local especificado por uma palavra-chave no código. O comando goto muda o fluxo do programa para um local previamente especificado. Esse local pode ser à frente ou atrás no programa, mas deve ser dentro da mesma função.
+
+-------------------------------
+-Capítulo 6 -- Vetores e matrizes - arrays
+
+1.	Cada variável está associada a uma úncia posição de memória, e dentro dela é possível armazenar apenas um valor do tipo especificado. Assim, para armazenar mais de um valor, é preciso usar mais de uma variável.
+
+2.	Um array ou "vetor" é a forma mais simples e comum de dados estruturados da linguagem C. Trata-se simplesmente de um conjunto de variáveis de um mesmo tipo, com a vantagem de estarem todas associadas ao mesmo nome e igualmente acessíveis por um índice.
+
+3.	O tamanho de um array deve ser sempre um valor ou expressão inteira e constante.
+
+4.	O acesso ao valor de cada nota é feito utilizando um índice. Para indicar qual índice do array queremos acessar, utiliza-se o operador de colchetes ([]).
+
+5.	Como o array possui um índice, podemos usar comandos de repetição para executar repetidamente um mesmo comando para cada posição do array. Desse modo, não é mais necessário reescrever um mesmo comando para a posição do array. Isso torna o código mais enxuto, facilitando a sua manutenção e minimizando a ocorrência de erros. 
+	O uso de arrays permite usar comandos de repetição sobre tarefas que devem ser realizadas, de forma idêntica, para cada posição do array, apenas modificando o índice do array. Além disso, cada posição do array possui todas as características de uma variável. Isso significa que ela pode aparecer em comandos de entrada e saída de dados, expressões e atribuições.
+
+5.	Na linguagem C, a numeração do índice do array começa sempre do ZERO e termina sempre em N-1, em que N é o número de elementos definido na declaração do array. Isso acontece pelo seguinte motivo: um array é um agrupamento de dados do mesmo tipo, adjacentes na memória. O nome do array indica onde esses dados começam na memória. O índice do array indica quantas posições se deve pular para acessar determinada posição.
+
+6.	Em um array de 100 elementos, índices menores do que 0 e maiores do que 99 também podem ser acessados. Porém, isso pode resultar nos mais variados erros durante a execução do programa. Isso significa que, se tentarmos acessar o índice 100, o programa tentará acessar a centésima posição a partir da posiçao inicial ( que é o nome do array ). O mesmo vale para a posição de índice -1. Nesse caso, o programa tentará acessar uma posição anterior ao local onde oa rray começa na memória. O problema é que, apesar de essas posições existirem na memória e serem acessíveis, elas não pertencem ao array. Pior ainda, elas podem pertencer a outras variáveis do programa, e alteração de seus valores pode resultar nos mais variados erros durante a execução do programa.
+
+7.	Não se pode fazer atribuição de arrays inteiros, apenas de suas posições individualmente. Isso ocorre porque a linguagem C não suporta a atribuição de um array para outro. Para atribuir o conteúdo de um array a outro array, o correto é copiar seus valores elemento por elemento para o outro array.
+
+8.	Há casos em que uma estrutura com mais de uma dimensão é mais útil. Por exemplo quando os dados são organizados em uma estrutura de linas e colunas, como uma tabela, Para isso, usamos um array com duas dimensões, ou seja, uma "matriz".
+
+9.	Para acessar determinada posição da matriz, precisamos usar dois índices: o primeiro índice especifica a linha, e o segundo, a coluna da nossa matriz. Note que cada índice possui o seu próprio par de colchetes ([]). Como no caso do vetor, cada dimensão começa no índice ZERO e termina sempre em N-1, em que N é o número de elementos definido par aquela dimensão da matriz. Assim, em uma matriz declarada com 100 linhas e 50 colunas, a numeração das linhas vai de 0 até 99, enquanto a numeração das colunas vai de 0 até 49.
+
+10.	Como no caso dos vetores, podemos aqui também usar comandos de repetição sobre tarefas que devem ser realizadas, de forma idêntica, para cada posição da matriz, apenas modificando os seus índices. Como uma matriz possui dois índices, precisamos de dois comandos de repetição para percorrer todos os seus elementos. 
+
+11.	Cada posição do array é uma variável. Portanto, todas as posições do array são igualmente acessíveis, isto é, o tempo e o tipo de procedimento para acessar qualquer uma das posções do array são iguais aos de qualquer outra variável.
+
+12. A linguagem C permite que se crie um array com mais de duas dimensões de maneira fácil. Para criar um vetor, utilizamos um par de colchetes. Ou seja, cada dimensão do array é definida por um par de colchetes na sua declaração.
+
+13.	Apesar de terem o comportamento de estruturas com mais de uma dimensão, os dados dos arrays, independetemente do número de dimensões que possuam, são sempre armazenados linearmente na memória. É o uso dos colchetes que cria a impressão de estarmos trabalhando com mais de um dimensão. 
+	Por esse motivo, é importante ter em mente qual dimensão se move mais rapidamente na memória: sempre a mais à direita, independentemente do tipo ou do número de dimensões do array.
+
+14.	Arrays são variáveis. Assim, a declaração de um arary apenas reserva espaço na memória e não associa a eles nenhum valor. Seu valor inicial é o lixo de memória contido no espaço reservado para ele. A depender do programa que estamos construindo, é preciso iniciar todas as posições do array com algum valor predefinido.
+
+15.	O operador de chaves permite definir uma lista de valores a serem atribuídos ao array durante a sua declaração: {dados}. Nessa declaração, dados são uma lista de valores (do mesmo tipo do array) separados por vírgula e delimitados pelo operador de chaves ({}). Esses valores devem ser colocados na mesma ordem em que serão colocados dentro do array, começando da sua primeira posição, a posição zero. A inicialização de um array utilizando o operador de chaves ({}) só pode ser feita durante sua declaração.
+
+16.	Na inicialização de um array, não é necessário definir o valor de todas as suas posições. As posições não definidas serão inicializadas com o valor ZERO ou o caractere correspondente ao valor ZERO.
+
+17.	A linguagem C também permite inicializar um array sem que tenhamos definido o seu tamanho. Nesse caso, simplesmente não colocamos o valor do tamanho do array entre os colchetes durante a sua declaração.
+	Nesse tipo de inicialização, o compilador da linguagem C vai contar quantos valores existem na lista de dados definida para a inicialização do array. Em seguida, ele vai considerar essa quantidade de valores como o tamanho do array. Isso ocorre na etapa de compilação do programa. Depois disso, o tamanho do array não poderá mais ser modificado.
+
+18.	Array de caracteres sempre possuem o elemento seguinte ao último caractere como sendo o caractere "\0".
+
+19.	No caso da inicialização de arrays com mais de uma dimensão, é necessário sempre definir as dimensões que existem além da primeira. Apenas a primeira dimensão pode ficar sem tamanho definido.
