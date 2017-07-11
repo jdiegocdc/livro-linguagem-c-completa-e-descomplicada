@@ -201,3 +201,34 @@
 15.	A linguagem C contém muitos operadores. Consequentemente, o uso de múltiplos operadores em uma única expressão pode tornar confusa a sua interpretação. Por esse motivo, a linguagem C possui uma série de regras de precedência de operadores. Isso permite que o compilador possa decidir corretamente qual a ordem em que os operadores deverão ser executados em um expressão contendo vários. Para forçar o compilador a executar uma parte da expressão antes das demais pode-se utilizar os parênteses.
 
 16.	Link with the math library: gcc <nameOfFile> <nameOfFile.c> -lm
+
+-------------------------------
+-Capítulo 4 -- Comandos de controle condicional
+
+1.	Por condição entende-se qualquer expressão relacional que resulte em uma reposta do tipo verdadeiro ou falso. Ela pode ser contruída utilizando operadores matemáticos, relacionais ou lógicos.
+
+2.	Quando o compilador avalia uma condição, ele quer um valor de retorno (verdadeiro ou falso) para poder tomar a decisão. No entanto, essa expressão condicional não necessita ser uma expressão no sentido convencional. Uma variável sozinha pode ser uma "expressão condicional" e retornar o seu próprio valor.
+
+3.	Na linguagem C, o comando if é utilizado sempre que é necessário escolher entre dois caminhos dentro do programa ou quando se deseja executar um ou mais comando que estejam sujeitos ao resultado de um teste.
+	Na execução do comando if a condição será avaliada e se a condição for verdadeira, a sequência de comandos será executada, se a condição for falsa, a sequência de comandos não será executada, e o programa continuará a partir do primeiro comando seguinte ao final do comando if.
+
+4.	Diferentemente da maioria dos comandos, não se usa o ponto e vírgula (;) depois da condição do comando if. Na linguagem C, o operador ponto e vírgula (;) é utilizado para separar as instruções do programa. Colocá-lo logo após o comando if, faz com que o compilador entenda que o comando if já terminou e trate o comando seguinte como se ele estivesse fora do if. O compilador não acusará um erro se colocarmos o operador ponto e vírgula (;) após o comando if, mas a lógica do programa poderá estar errada.
+
+5.	No comando if, e em diversos outros comandos da linguagem C, usam-se os operadores de chaves ({}) para delimitar um bloco de instruções. Por definição, comandos de condição (if e else) ou repetição (while, for, do while) atuam apenas sobre o comando seguinte a eles. Desse modo, se o programador desejar que mais de uma instrução seja executada por aquele comando if, esse conjunto de instruções deve estar contido dentro de um bloco delimitado por chaves ({}). As chaves podem ser ignoradas se o comando contido dentro do if for único.
+
+6.	O comando else pode ser entendido como um complemento do comando if. Ele auxilia o comando if na tarefa de escolher entre os vários caminhos a serem seguidos dentro do programa.
+	O comando else é opcional, e sua sequência de comandos somente será executada se o valor da condição que está sendo testada pelo comando if for FALSA. Se o comando if diz o que fazer quando a condição é verdadeira, o comando else trata da condição quando ela é feita.
+	O comando else deve ser entendido como um complemento do comando if. Ele diz quais comandos se deve executar se a condição do comando if for falsa. Portanto, não é necessário estabelecer uma condição para o comando else: ele é o oposto do if.
+	Como no caso de if, não se usa o ponto e vírgula (;) depos do comando else.
+
+7.	Um if aninhado é simplesmente um comando if utilizado dentro do bloco de comandos de um outro if (ou else) mais externo. Basicamente, é um comando if dentro de outro.
+
+8.	O operador ? é também conhecido como operador ternário. Trata-se de uma simplificação do comando if-else, ou seja, com apenas um comando e não blocos de comandos. O operador de ? é tipicamente utilizado para atribuições condicionais.
+
+9.	Além dos comandos if e else, a linguagem C possui um comando de seleção múltipla chamado switch. Esse comando é muito parecido com o aninhamento de comando if-else-if.
+	O comando switch é muito mais limitado que o comando if-else: quando o comando if pode testar expressões lógicas ou relacionais, o comando switch somente verifica se uma váriavel ( do tipo int ou char ) é ou não igual a certo valor constante.
+	O comando switch é indicado quando se deseja testar uma variável em relação a diversos valroes preestabelecidos.
+	O comando default é opcional, e sua sequência de comandos somente será executada se o valor da variável que está sendo testada pelo  comando switch não for igual a nenhum dos valores dos comandos case.
+	O comando break é opcional e faz com que o comando switch seja interrompido assim que uma das sequências de comandos é executada.
+	Quando o valor associado a um comando case é igual ao valor da variável do switch, a respectiva sequência de comandos é executada até encontrar um comando break. Caso o comando break não exista, a sequência de comandos do case seguinte também será executada, e assim por diante.
+	De modo geral, a sequência de comandos case não precisa estar entre chaves ({}). Mas se o primeiro comando dentro de um case for a declaração de uma variável, será necessário colocar todos os comandos desse case dentro de um par de chaves ({}). A explicação para esse comportamento do switch se deve a uma regra da linguagem que especifica que um salto condicional não pode pular uma declaração de variável no mesmo escopo. Quando colocamos as ({}) depois do comando case e antes do comando break, estamos criando um novo escopo, ou seja, a variável declarada existe apenas dentro desse par de chaves. Portanto, ela pode ser pulada por um salto condicional.
