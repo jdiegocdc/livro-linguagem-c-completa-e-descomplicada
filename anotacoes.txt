@@ -1,0 +1,58 @@
+-Capítulo 1 -- Introdução
+
+1.	A linguagem C é uma das mais bem-secedidas linguagens de alto nível já criadas e considerada uma das linguagens de programação mais utilizadas de todos os tempos.
+	Define-se como linguagem de alto nível aquela que possui um nível de abstração relativamente elevado, que está mais próximo da linguagem humana do que do código de máquina. Ela foi criada em 1972, nos laboratórios Bell, por Deniis Ritchie, sendo revisada e padronizada pelo ANSI (American National Standards Institute) em 1989.
+	A linguagem C é uma linguagem procedural, ou seja, ela permite que um problema complexo seja facilmente decomposto em módulos, sendo cada módulo um problema mais simples. Além disso, ela fornece acesso de baixo nível à memória, o que permite o acesso e a programação direta do microprocessador. Ela também permite a implantação de programas utilizando instruções em Assembly, o que possibilita programar problemas em que a depencência do tempo é critica.
+	Por fim, a linguagem C foi criada para incentivar a programação multiplataforma, ou seja, programas escritos em C podem ser compilados para uma grande variedade de plataformas e sistemas operacionais com apenas pequenas alterações no seu código-fonte.
+	
+2.	A linguagem C tem influenciado, direta ou indiretamente, muitas linguagens desenvolvidas posteriormente, como C++, Java, C# e PHP.
+	Provavelmente a influência mais marcante da linguagem foi a sua sintática: todas as mencionadas combinam a sintaxe de declaração e a sintaxe da expressão da linguagem C com sistemas de tipo, modelos de dados etc.
+
+3.	Um debugger nada mais é do que um programa de computador usado para testar e depurar (limplar, purificar) outros programas. Entre as principais funcionalidades de um debugger estão:
+	º A possibilidade de executar um programa passo a passo.
+	º Pausar o programa em pontos predefinidos, chamados pontos de parada ou breakpoints, para examinar o estado atual de suas variáveis.
+
+4.	Um Biblioteca é um conjunto de funções (pedaçõs de código) já implementados e que podem ser utilizados pelo programador.
+
+5.	Todo programa em linguagem C deve conter a função main(). Essa função é responsável pelo início da execução do programa, e é dentro dela que colocamos os comandos que queremos que o programa execute.
+
+6.	As chaves definem o início ("{") e o fim ("}") de um bloco de comandos/instruções.
+
+7.	Os parênteses definem o início ("(") e o fim (")") da lista de argumentos de uma função. Um argumento é a informação que será passada para a função agir.
+
+8.	Outra coisa importante que devemos ter em mente quando escrevemos um programa é a indentação do código. Trata-se de um convenção de escrita de códigos-fonte que visa a modificar a estética do programa para auxiliar a sua leitura e interpretação. A indentação torna a leitura do código-fonte muito mais fácil e facilita a sua modificação.
+	A indentação é o espaçamento (ou tabulação) colocado antes de começar a escrever o código na linha. Ela tem como objetivo indicar a hierarquia dos elementos. O ideal é sempre criar um novo nível de indentação para um novo bloco de comandos.
+
+9.	O código-fonte de um programa nada mais é do que um conjuntoo de palavras e/ ou símbolos. Nele estão as instruções do que o programa deve fazer. O código-fonte é normalmente escrito de uma forma que facilite a leitura pelos seres humanos, no caso o programador. Ele não tem nenhum significado para o computador, que somente entende códigos de máquina. Para fazer com que o nosso código-fone seja entendido como um programa pelo computador, é preciso traduzi-lo para esse código de máquina. A essa tradução damos o nome compilação.
+
+10.	A compilação é vulgarmente entendida como apenas uma etapa de tradução, mas na verdade ela é um conjunto de etapas:
+	º Pré-processamento: antes de iniciar a compilação do nosso código-fonte, o arquivo é processado por um pré-processador. O arquivo de código-fone é convertido em outro arquivo de código-fonte "expandido". Nessa etapa, ocorrem a remoção dos comentários e a interpretação das diretivas de compilação utilizadas, as quais se iniciam com #.
+
+	º Verificação sintática: aqui se verifica se o código-fonte foi escrito corretamente, de acordo com a linguagem C. Basicamente, a verificação sintática procura por erros de sintaxe como, por exemplo, parênteses que não foram fechados, falta de ponto e vírgula no final de uma instrução etc.
+
+	º Compilação: cada arquivo de código-fonte do seu programa é processado, sendo criado um arquivo "objeto" para cada um deles. Nessa etapa, não é gerado nenhum arquivo que o usuário possa executar. Em vez disso, o compilador produz as instruções de linguagem de máquina que correspondem ao arquivo de código-fonte compilado.
+
+	º Link-edição: o trabalho do link-editor é unir todos os arquivos "objeto" que fazem parte do programa em um único arquivo executável, o programa propriamente dito. Isso inclui tanto os arquivos objeto gerados na etapa de compilação a partir dos arquivos de código-fonte do programa como os arquivos objeto que foram gerados a partir das bibliotecas usadas.
+
+11.	Um comentário, como o próprio nome diz, é um trecho de texto incluído dentro do programa para descrever alguma coisa, por exemplo, o que aquele pedaço do programa faz. Os comentários não modificam o funcionamento do programa porque são ignorados pelo compilador e servem, portanto, apenas para ajudar o programador a organizar o seu código.
+	Para tanto, a linguagem C permite fazer comentários de duas maneiras diferentes: por linha ou por bloco:
+	º Se o programador quiser comentar uma única linha de código, basta adicionar // na frente da linha. Tudo o que vier na linha depois do // será consirado comentário e ignorado pelo compilador.
+	º Se o programdor quiser comentar mais de uma linha do código, isto é, um bloco de linhas, basta adicionar /* no começo da primeira linha de comentário e */ no final da última linha de comentário. Tudo o que vier depois do símbolo de /* e antes do */ será considerado comentário e ignorado pelo compilador.
+	Outro aspecto importante do uso dos comentários é que eles permitem fazer a documentação interna de um programa, ou seja, permitem descrever o que cada bloco de comandos daquele programa faz.
+	Os comentários dentro de um código permitem que um programador entenda muito mais rapidamente um código que nunca tenha visto ou relembre o que faz um techo de código há muito tempo implementado por ele. Além disso, saber o que determinado trecho de código realmente faz aumenta as possibilidades de reutilizá-lo em outras aplicacões.
+
+12.	O comando #include é utilizado para declarar as bibliotecas que serão utilizadas pelo programa. Esse comando diz ao pré-processador para tratar o conteúdo de um arquivo especificado como se o seu conteúdo tivesse sido digitado no programa no ponto em que o comando #include aparece.
+	O comando include permite duas sintaxes:
+	º #include <nome-da-biblioteca>: o pré-processador procurará pela biblioteca nos caminhos de procura pré-especificados do compilador. Usamos essa sintaxe quando estamos incluindo uma biblioteca que é própria do sistema, com as bibliotecas stdio.h e stdlib.h.
+	
+	º #include "nome-da-biblioteca": o pré-processador procurará pela biblioteca no mesmo diretório onde se encontra o nosso programa. Podemos ainda optar por informar o nome do arquivo com o caminho completa, ou seja, em qual diretório ele se encontra e como chegar até lá.
+
+13.	A linguagem C nos permite criar nossa própria biblioteca. Nela, podemos coloar função, estruturas etc., o que torna mais prática e fácil a sua utilização em outros projetos. Uma biblioteca é como o seu arquivo de código-fonte principal, com a diferença de que ele não possui a função main(). Isso ocorre porque o seu programa não vai começar na biblioteca.
+
+14. Para se criar uma biblioteca, precisamos criar dois arquivos:
+	º Cabeçalho (ou header) da biblioteca: esse arquivo contém as declarações e definições do que está contido dentro da biblioteca. Aqui são definidas quais função (apenas o seu protótipo), tipos e variáveis farão parte da biblioteca. Sua extensão é .h.
+
+	º Código-fonte da biblioteca: arquivo que contém a implementação das funções definidas no cabeçalho e também qualquer biblioteca adicional de que nossas funções precisem para funcionar. Sua extensão é .c.
+
+	Independetemente de precisarmos ou não incluir outras bibliotecas, devemos sempre incluir nossa própria biblioteca (header) no código-fonte. Para isso, usamos #include "<nome-do-header.h>.
+	Por fim, temos de incluir nossa biblioteca no nosso programa.
