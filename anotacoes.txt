@@ -317,3 +317,40 @@
 18.	Array de caracteres sempre possuem o elemento seguinte ao último caractere como sendo o caractere "\0".
 
 19.	No caso da inicialização de arrays com mais de uma dimensão, é necessário sempre definir as dimensões que existem além da primeira. Apenas a primeira dimensão pode ficar sem tamanho definido.
+
+-------------------------------
+-Capítulo 7 -- Arrays de caracteres - strings
+
+1.	String é o nome que usamos para definir uma sequência de caracteres adjacentes na memória do computador. Essa sequência de caracteres, que pode ser uma palavra ou frase, é armazenada na memória do computador na forma de um array do tipo char.
+	Por ser a string um array de caracteres, sua declaração segue as mesmas regras da declaração de um array convencional. No entanto, apesar de ser um array, devemos ficar atentos para o fato de que as strings têm no elemento seguinte a última letra da palavra/frase armazenada, um caractere "\0". O caractere "\0" indica o fim da sequência de caracteres.
+	Isso ocorre porque podemos definir uma string com tamanho maior do que a palavra armazenada. Imagine uma string definida com tamanho de 50 caracteres, mas utilizada apenas para armazenar a palavra "oi". Nesse caso, temos 48 posições não utilizadas e que estão preenchidas com lixo de memória ( um valor qualquer ). Obviamente, não queremos que todo esse lixo seja impresso quando essa string for exibida na tela. Assim, o caractere "\0" indica o fim da sequência de caracteres e o início das posições restantes da nossa string que não estão sendo utilizadas nesse momento.
+	Ao definir o tamanho de uma string, devemos considerar o caractere "\0". Como o caractere "\0" indica o final de nossa string, isso significa que, em uma string definida com tamanho de 50 caracteres, apenas 49 estarão disponíveis para armazenar o texto digitado pelo usuário.
+
+2.	Uma string pode ser lida do teclado ou já ser definida com um valor inicial. Para sua inicialização, pode-se usar o mesmo princípio definido na inicialização de vetores e matrizes.
+
+3.	Outro ponto importante na manipulação de strings é que, por se tratar de um array, cada caractere pode ser acessado individualmente por indexação como em qualquer outro vetor ou matriz.
+	Na atribuição de strings usam-se aspas duplas, enquanto na de caracteres usam-se aspas simples.
+
+4.	A linguagem C possui funções especialmente desenvolvidas para a manipulação de strings na biblioteca <string.h>.
+
+5.	Quando usamos a função scanf() para ler uma string, o símbolo de & antes do nome da variável não é utilizado. Os colchetes também não são utilizados, pois queremos ler a string toda e não apenas uma letra. A função scanf() lê apenas strings digitadas sem espaços, ou seja, palavras.
+
+6.	Uma alternativa mais eficiente para a leitura de uma string é a função gets(), a qual faz a leitura do teclado considerando todos os caracteres digitados ( incluindo os espaços ) até encontrar uma tecla enter.
+
+7.	Outra função que, utilizada de forma adequada, também permite a leitura de strings do teclado. Essa função é a fgets(). Para ler do teclado, basta substituir FILE *fp por stdin, o qual o dispositivo de entrada-padrão ( geralmente o teclado ).
+	Como a função gets(), a função fgets() lê a string do teclado até que um caractere de nova linha (enter) seja lido. Apesar de parecerem iguais, a função fgets possui algumas diferenças e vantagens sobre a gets(). Na função fgets(), o caractere de nova linha ("\n") fará parte da string, o que não acontecia com a gets().
+
+8.	Para resolver o erro de sujeira no buffer, podemos limpar o buffer do teclado (entrada-padrão) usando a função setbuf(stdin, NULL) antes de realizar a leitura de caracteres ou strings.
+	Basicamente, a função setbuf() preenche um buffer (primeiro parâmetro) com determinado valor ( segundo parâmetro). Na linguagem C, a palavra NULL é uma constante-padrão que significa um valor nulo. Um buffer preenchido com NULL é considerado limpo/vazio.
+
+9.	Basicamente, para escrever uma string na tela utilizamos a função printf() com o formato de dado "%s". Os colchetes não são utilizados, pois queremos escrever a string toda e não apenas uma letra.
+
+10.	Existe uma outra função que, se utilizada de forma adequada, também permite a escrita de strings na tela. Essa função é a fputs().
+
+11.	Para obter o tamanho de uma string, usa-se a função strlen().
+
+12.	Para realizar a cópia de uma string, usa-se a função strcpy(). Para evitar o estouro de buffer, o tamanho do array destino deve ser longo o suficiente para conter a sequência de caracteres contida em origem.
+
+13.	A operação de concatenação é outra tarefa bastante comum ao se trabalhar com strings. Basicamente, essa operação consiste em copiar uma string para o final de outra string. Na linguagem C, para fazer a concatenação de duas strings, usa-se a função strcat().
+
+14.	Da mesma maneira como o operador de atribuição não funciona para strings, o mesmo ocorre com operadores relacionais usados para comparar duas strings. Desse modo, para saber se duas strings são iguais usa-se a função strcmp().
