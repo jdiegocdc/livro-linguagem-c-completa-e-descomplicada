@@ -354,3 +354,43 @@
 13.	A operação de concatenação é outra tarefa bastante comum ao se trabalhar com strings. Basicamente, essa operação consiste em copiar uma string para o final de outra string. Na linguagem C, para fazer a concatenação de duas strings, usa-se a função strcat().
 
 14.	Da mesma maneira como o operador de atribuição não funciona para strings, o mesmo ocorre com operadores relacionais usados para comparar duas strings. Desse modo, para saber se duas strings são iguais usa-se a função strcmp().
+
+-------------------------------
+-Capítulo 8 -- Tipos definidos pelo programador
+
+1.	A lingugem C permite criar novos tipos de dados a partir dos tipos básicos utilizando os comandos struct, union, enum ou typedef.
+
+2.	Uma estrutura (struct) pode ser vista como um conjunto de variáveis sob o mesmo nome, e cada uma delas pode ter qualquer tipo ( ou mesmo tipo). A ideia básica por trás da estrutura é criar apenas um tipo de dado que contenha vários membros, que nada mais são do que outras variáveis. Em outras palavras estamos criando uma variável que contém dentro de si outras variáveis.
+
+3.	As estruturas podem ser declaradas em qualquer escopo do programa ( global ou local ). Apesar disso, a maioria das estruturas é declarada no escopo global. Por se tratar de um novo tipo de dado, muitas vezes é interessante que todo o programa tenha acesso à estrutura. Daí a necessidade de usar o escopo global.
+
+4.	Depois do símbolo de fechar chaves ({}) da estrutura, é necessário colocar um ponto e vírgula (;). Isso necessário porque a estrutura pode ser tambpem declarada no escopo local. Por questões de simplificação e por se tratar de um novo tipo, é possível, logo na definição da struct, definir algumas variáveis desse tipo. Para isso, basta colocar os nomes das variáveis declaradas após o comando de fechar chaves ({}) da estrutura e antes do ponto e vírgula.
+
+5.	Uma vez definida a estrutura, uma variável pode ser declarada de modo similar aos tipos já existentes. Por ser um tipo definido pelo programador, usa-se a palavra struct antes do tipo da nova variável declarada.
+
+6.	O operador de acesso aos campos da estrutura é o ponto (.). Ele é usado para referenciar os campos de uma estrutura.
+
+7.	Assim como nos arrays, uma estrutura também pode ser inicializada, independetemente do tipo das variáveis contidas nela. Para tanto, na declaração da variável do tipo da estrutura, basta definir uma lista de valores separados por vírgula e delimitados pelo operador de chaves ({}).
+	Nesse caso, como nos arrays, a ordem é mantida. Isso significa que o primeiro valor da inicialização será atribuido à primeira variável membro da estrutura, e assim por diante.
+	Elementos omitidos durante a inicialização são inicializados com 0. Se for string, será inicializado com uma string vazia ("").
+
+8.	A linguagem C permite a criação de um array de estruturas, em que cada posição do array é uma estrutura. A combinação de arrays e estruturas permite que se manipulem, de modo muito mais prático, diversas variáveis de estrutura.
+
+9.	Em um array de estruturas, o operador de ponto (.) vem depois dos colchetes ([]) do índice do array. Essa ordem deve ser respeitada, pois o índice do array é que indica qual posição do array queremos acessar, onde cada posição é uma estrutura. Somente depois de definidas as estruturas contidas no array que queremos acessar é que podemos acessar seus campos.
+
+10.	As únicas operações possíveis em uma estrutura são as de de acesso aos membros da estrutura, por meio do operador ponto (.) e as de cópia ou atribuição (=). A atribuição entre duas variáveis de estrutura faz com que os conteúdos das variáveis contidas dentro de uma estrutura sejam copiados para a outra. Atribuições entre estruturas só podem ser feitas quando as estruturas são as mesmas, ou seja, quando possuem o mesmo nome.
+	No caso de trabalharmos com arrays de estruturas, a atribuição entre diferentes elementos do array também é válida. Um array ou "vetor" é um conjunto de variáveis do mesmo tipo utilizando apenas um nome. Como todos os elementos do array são do mesmo tipo, a atribuição entre elas é possível, mesmo que o tipo do array seja uma estrutura.
+
+11.	Uma estrutura também é um tipo de dado, com a diferença de que se trata de um tipo de dado criado pelo programador. Sendo assim, podemos declarar uma estrutura que possua uma variável do tipo de outra estrutura previamente definida. Uma estrutura que contenha outra estrutura dentro dela damos o nome estruturas aninhadas.
+	O acesso aos dados de uma estrutura aninhada é feito utilizando-se novamente o operador ".". Esse processo se repete sempre que houver uma nova estrutura aninhada.
+
+12.	Uma união pode ser vista como uma lista de variáveis, e cada uma delas pode ter qualquer tipo. A idéia básica por trás da união é similar à da estrutura: criar apenas um tipo de dado que contenha vários membros, que nada mais são do que outras variáveis. Tanto na declaração quanto o acesso aos elementos de uma união são similares aos de de uma estrutura. No entando, diferentemente das estruturas, todos os elementos contidos na união ocupam o mesmo espaço físico na memória. Uma estrutura reserva espaço de memória para todos os seus elementos, enquanto uma union reserva espaço de memória par o seu maior elemento e compartilha essa memória com os demais.
+	Em uma união, apenas um membro pode ser armazenado de cada vez. Isso acontece porque o espaço de memória é compartilhado. Como todos os elementos de uma união se referem a um mesmo local na memória, a modificação de um dos elementos afetará o valor de todos os demais. Num união, é impossível armazenas valores independentes.
+	Um dos usos mais comuns de uma união é unir um tipo básico a um array de tipos menores sem precisar recorrer a operações de manipulação de bits (operações lógicas e de deslocamento de bits ).
+
+13.	Uma enumeração pode ser vista como uma lista de constantes, em que cada constante possui um nome significativo. A ideia básica por trás da enumeração é criar apenas um tipo de dado que contenha várias constantes, e uma variável desse tipo só poderá receber como valor uma dessas constantes. Cada uma das constantes é representada por um valor inteiro, e o valor da primeira constante da enumeração é 0. Desse modo, uma enumeração pode ser usada em qualquer expressão válida com inteiros.
+	Na definição da enumeração, pode-se definir qual valor aquela constante possuirá. As constantes da enumeração que não possuem valor definido são definidas automaticamente como o valor do elemento anterior acrescido de um.
+	Na definição da enumeração, pode-se também atribuir valores da tabela ASCII para as constantes.
+
+14.	A linguagem C permite que o programador defina os seus próprios tipos com base em outros tipos de dados existentes. Para isso, utiliza-se o comando typedef. O comando typedef não cria um novo tipo. Ele apenas permite que você defina um sinônimo para um tipo já existente.
+	O comando typedef pode ser usado para simplificar a declarção de um tipo definido pelo programador (struct, union etc.) ou de um ponteiro. 
